@@ -86,9 +86,9 @@ function click_function(iDoc) {
                     
                     const startDate = stringToDate(startDateString);
                     const endDate = stringToDate(endDateString);
-                    for (let i = startDate; i.getTime() < endDate.getTime(); i.setDate(i.getDate() + 1)) {
+                    for (let i = startDate; i.getTime() <= endDate.getTime(); i.setDate(i.getDate() + 1)) {
                         let date = dateToString(i), day = getWeekDaybyDate(i);
-                        if (sevendays[day]) {
+                        if (sevendays[day] == true) {
                             csvData += `${title},${date},${startTime},${date},${endTime},${classNbr} ${section} ${component},${room},${instructor}\n`;
                         }
                     }
