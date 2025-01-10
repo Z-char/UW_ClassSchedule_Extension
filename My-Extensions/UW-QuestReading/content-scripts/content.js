@@ -71,16 +71,22 @@ function click_function(iDoc) {
                     let sevendays = [false, false, false, false, false, false, false];
                     let regex = /(M)/;
                     sevendays[1] = regex.test(days);
-                    regex = /(T(?!r))/;
+                    regex = /(T(?!h))/;
                     sevendays[2] = regex.test(days);
                     regex = /(W)/;
                     sevendays[3] = regex.test(days);
-                    regex = /(Tr)/;
+                    regex = /(Th)/;
                     sevendays[4] = regex.test(days);
                     regex = /(F)/;
                     sevendays[5] = regex.test(days);
                     const startTime = daysTimes[1].replace(/(AM|PM)/, ' $1');
                     const endTime = daysTimes[3].replace(/(AM|PM)/, ' $1');
+
+                    // !! it's Th not Tr. going to be crazy!
+                    // if (classNbr == "5059") {
+                    //     console.log(days);
+                    //     console.log(sevendays[4]);
+                    // }
                     // ok, now we have startdate, enddate, and what dates should have class from starttime to endtime.
                     // from startdate to enddate, only if (sevendays[getweeknumber()]), we add this day from starttime to endtime.
                     
