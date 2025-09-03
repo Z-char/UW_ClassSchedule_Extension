@@ -134,10 +134,16 @@ window.onload = function() {
     setTimeout(function() {
         let iframe = document.querySelector('iframe');
         if (iframe) {
-            iframe.addEventListener('load', function() {
-                console.log('iframe content loaded');
+            console.log('window loaded.');
+            if (iframe.contentWindow.document.readyState === 'complete') {
+                console.log('iframe content already loaed.');
                 main_logic();
-            })
+            } else {
+                iframe.addEventListener('load', function() {
+                    console.log('iframe content loaded');
+                    main_logic();
+                });
+            }
         } else {
             console.error('iframe element not found.');
         }
